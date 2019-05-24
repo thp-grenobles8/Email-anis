@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to email_path(email.id), remote: true do %>
+        <div class=" ml-3<%if email.read == false%>
+          font-weight-bold"
+          <%else%>
+          text-secondary"
+          <%end%>><%= email.object %></div>
+    <% end %>
+  </td>
+</tr>

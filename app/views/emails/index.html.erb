@@ -1,0 +1,36 @@
+<div class="ml-2 mb-3">
+  <%= link_to "Recevoir un email", emails_path, method: "post", remote: true, class:' btn btn-success '%>
+</div>
+<div class="row mt-3">
+  <div id="email-objects" class="col-5 ml-auto">
+
+
+    <table class="table-striped w-100">
+      <thead>
+        <tr>
+          <th scope="col" class="rounded-top bg-secondary"><h1 class="text-center">Email reçu</h1></th>
+        </tr>
+      </thead>
+      <tbody id="email-list">
+        <% @emails.each_with_index do |email,index| %>
+        <tr>
+          <td><%= link_to email_path(email.id), remote: true do %>
+                <div class=" ml-3<%if email.read == false%>
+                  font-weight-bold"
+                  <%else%>
+                  text-secondary"
+                  <%end%>><%= email.object %></div>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <div id="email-selected" class="col-5 mr-auto pb-3">
+
+  </div>
+</div>
